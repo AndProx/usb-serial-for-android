@@ -399,8 +399,12 @@ public class CdcAcmSerialDriver implements UsbSerialDriver {
 
     }
 
+    // Called by reflection in ProbeTable.addDriver
+    @SuppressWarnings("unused")
     public static Map<Integer, int[]> getSupportedDevices() {
         final Map<Integer, int[]> supportedDevices = new LinkedHashMap<Integer, int[]>();
+        // ANDPROX: Disable other devices from being probed.
+        /*
         supportedDevices.put(UsbId.VENDOR_ARDUINO,
                 new int[] {
                         UsbId.ARDUINO_UNO,
@@ -426,6 +430,7 @@ public class CdcAcmSerialDriver implements UsbSerialDriver {
                 new int[] {
                     UsbId.LEAFLABS_MAPLE,
                 });
+        */
         supportedDevices.put(UsbId.VENDOR_PROXMARK3,
                 new int[] {
                     UsbId.PROXMARK3,
