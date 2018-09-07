@@ -34,67 +34,67 @@ import java.io.IOException;
 public interface UsbSerialPort {
 
     /** 5 data bits. */
-    public static final int DATABITS_5 = 5;
+    int DATABITS_5 = 5;
 
     /** 6 data bits. */
-    public static final int DATABITS_6 = 6;
+    int DATABITS_6 = 6;
 
     /** 7 data bits. */
-    public static final int DATABITS_7 = 7;
+    int DATABITS_7 = 7;
 
     /** 8 data bits. */
-    public static final int DATABITS_8 = 8;
+    int DATABITS_8 = 8;
 
     /** No flow control. */
-    public static final int FLOWCONTROL_NONE = 0;
+    int FLOWCONTROL_NONE = 0;
 
     /** RTS/CTS input flow control. */
-    public static final int FLOWCONTROL_RTSCTS_IN = 1;
+    int FLOWCONTROL_RTSCTS_IN = 1;
 
     /** RTS/CTS output flow control. */
-    public static final int FLOWCONTROL_RTSCTS_OUT = 2;
+    int FLOWCONTROL_RTSCTS_OUT = 2;
 
     /** XON/XOFF input flow control. */
-    public static final int FLOWCONTROL_XONXOFF_IN = 4;
+    int FLOWCONTROL_XONXOFF_IN = 4;
 
     /** XON/XOFF output flow control. */
-    public static final int FLOWCONTROL_XONXOFF_OUT = 8;
+    int FLOWCONTROL_XONXOFF_OUT = 8;
 
     /** No parity. */
-    public static final int PARITY_NONE = 0;
+    int PARITY_NONE = 0;
 
     /** Odd parity. */
-    public static final int PARITY_ODD = 1;
+    int PARITY_ODD = 1;
 
     /** Even parity. */
-    public static final int PARITY_EVEN = 2;
+    int PARITY_EVEN = 2;
 
     /** Mark parity. */
-    public static final int PARITY_MARK = 3;
+    int PARITY_MARK = 3;
 
     /** Space parity. */
-    public static final int PARITY_SPACE = 4;
+    int PARITY_SPACE = 4;
 
     /** 1 stop bit. */
-    public static final int STOPBITS_1 = 1;
+    int STOPBITS_1 = 1;
 
     /** 1.5 stop bits. */
-    public static final int STOPBITS_1_5 = 3;
+    int STOPBITS_1_5 = 3;
 
     /** 2 stop bits. */
-    public static final int STOPBITS_2 = 2;
+    int STOPBITS_2 = 2;
 
-    public UsbSerialDriver getDriver();
+    UsbSerialDriver getDriver();
     
     /**
      * Port number within driver.
      */
-    public int getPortNumber();
+    int getPortNumber();
     
     /**
      * The serial number of the underlying UsbDeviceConnection, or {@code null}.
      */
-    public String getSerial();
+    String getSerial();
 
     /**
      * Opens and initializes the port. Upon success, caller must ensure that
@@ -104,14 +104,14 @@ public interface UsbSerialPort {
      *            {@link UsbManager#openDevice(android.hardware.usb.UsbDevice)}
      * @throws IOException on error opening or initializing the port.
      */
-    public void open(UsbDeviceConnection connection) throws IOException;
+    void open(UsbDeviceConnection connection) throws IOException;
 
     /**
      * Closes the port.
      *
      * @throws IOException on error closing the port.
      */
-    public void close() throws IOException;
+    void close() throws IOException;
 
     /**
      * Reads as many bytes as possible into the destination buffer.
@@ -121,7 +121,7 @@ public interface UsbSerialPort {
      * @return the actual number of bytes read
      * @throws IOException if an error occurred during reading
      */
-    public int read(final byte[] dest, final int timeoutMillis) throws IOException;
+    int read(final byte[] dest, final int timeoutMillis) throws IOException;
 
     /**
      * Writes as many bytes as possible from the source buffer.
@@ -131,7 +131,7 @@ public interface UsbSerialPort {
      * @return the actual number of bytes written
      * @throws IOException if an error occurred during writing
      */
-    public int write(final byte[] src, final int timeoutMillis) throws IOException;
+    int write(final byte[] src, final int timeoutMillis) throws IOException;
 
     /**
      * Sets various serial port parameters.
@@ -146,7 +146,7 @@ public interface UsbSerialPort {
      *            {@link #PARITY_SPACE}.
      * @throws IOException on error setting the port parameters
      */
-    public void setParameters(
+    void setParameters(
             int baudRate, int dataBits, int stopBits, int parity) throws IOException;
 
     /**
@@ -155,7 +155,7 @@ public interface UsbSerialPort {
      * @return the current state, or {@code false} if not supported.
      * @throws IOException if an error occurred during reading
      */
-    public boolean getCD() throws IOException;
+    boolean getCD() throws IOException;
 
     /**
      * Gets the CTS (Clear To Send) bit from the underlying UART.
@@ -163,7 +163,7 @@ public interface UsbSerialPort {
      * @return the current state, or {@code false} if not supported.
      * @throws IOException if an error occurred during reading
      */
-    public boolean getCTS() throws IOException;
+    boolean getCTS() throws IOException;
 
     /**
      * Gets the DSR (Data Set Ready) bit from the underlying UART.
@@ -171,7 +171,7 @@ public interface UsbSerialPort {
      * @return the current state, or {@code false} if not supported.
      * @throws IOException if an error occurred during reading
      */
-    public boolean getDSR() throws IOException;
+    boolean getDSR() throws IOException;
 
     /**
      * Gets the DTR (Data Terminal Ready) bit from the underlying UART.
@@ -179,7 +179,7 @@ public interface UsbSerialPort {
      * @return the current state, or {@code false} if not supported.
      * @throws IOException if an error occurred during reading
      */
-    public boolean getDTR() throws IOException;
+    boolean getDTR() throws IOException;
 
     /**
      * Sets the DTR (Data Terminal Ready) bit on the underlying UART, if
@@ -188,7 +188,7 @@ public interface UsbSerialPort {
      * @param value the value to set
      * @throws IOException if an error occurred during writing
      */
-    public void setDTR(boolean value) throws IOException;
+    void setDTR(boolean value) throws IOException;
 
     /**
      * Gets the RI (Ring Indicator) bit from the underlying UART.
@@ -196,7 +196,7 @@ public interface UsbSerialPort {
      * @return the current state, or {@code false} if not supported.
      * @throws IOException if an error occurred during reading
      */
-    public boolean getRI() throws IOException;
+    boolean getRI() throws IOException;
 
     /**
      * Gets the RTS (Request To Send) bit from the underlying UART.
@@ -204,7 +204,7 @@ public interface UsbSerialPort {
      * @return the current state, or {@code false} if not supported.
      * @throws IOException if an error occurred during reading
      */
-    public boolean getRTS() throws IOException;
+    boolean getRTS() throws IOException;
 
     /**
      * Sets the RTS (Request To Send) bit on the underlying UART, if
@@ -213,7 +213,7 @@ public interface UsbSerialPort {
      * @param value the value to set
      * @throws IOException if an error occurred during writing
      */
-    public void setRTS(boolean value) throws IOException;
+    void setRTS(boolean value) throws IOException;
 
     /**
      * Flush non-transmitted output data and / or non-read input data
@@ -223,6 +223,6 @@ public interface UsbSerialPort {
      * {@code false} if the operation is not supported by the driver or device
      * @throws IOException if an error occurred during flush
      */
-    public boolean purgeHwBuffers(boolean flushRX, boolean flushTX) throws IOException;
+    boolean purgeHwBuffers(boolean flushRX, boolean flushTX) throws IOException;
 
 }

@@ -27,7 +27,6 @@ import android.hardware.usb.UsbDeviceConnection;
 import android.hardware.usb.UsbEndpoint;
 import android.hardware.usb.UsbInterface;
 import android.hardware.usb.UsbRequest;
-import android.os.Build;
 import android.util.Log;
 
 import java.io.IOException;
@@ -402,7 +401,7 @@ public class CdcAcmSerialDriver implements UsbSerialDriver {
     // Called by reflection in ProbeTable.addDriver
     @SuppressWarnings("unused")
     public static Map<Integer, int[]> getSupportedDevices() {
-        final Map<Integer, int[]> supportedDevices = new LinkedHashMap<Integer, int[]>();
+        final Map<Integer, int[]> supportedDevices = new LinkedHashMap<>();
         // ANDPROX: Disable other devices from being probed.
         /*
         supportedDevices.put(UsbId.VENDOR_ARDUINO,
