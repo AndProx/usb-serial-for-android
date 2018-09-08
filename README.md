@@ -2,6 +2,8 @@
 
 **AndProx modified version.**
 
+[![Build Status](https://travis-ci.org/AndProx/usb-serial-for-android.svg?branch=andprox)](https://travis-ci.org/AndProx/usb-serial-for-android)
+
 * **Upstream repository**: https://github.com/mik3y/usb-serial-for-android
 * **This repository**: https://github.com/AndProx/usb-serial-for-android
 
