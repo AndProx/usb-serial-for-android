@@ -1,0 +1,30 @@
+language: android
+jdk: oraclejdk8
+
+env:
+  global:
+    - ANDROID_API=27
+    - ANDROID_BUILD_TOOLS=27.0.3
+
+android:
+  components:
+    - tools
+    - platform-tools
+    - build-tools-$ANDROID_BUILD_TOOLS
+    - android-$ANDROID_API
+    - extra-android-support
+    - extra-android-m2repository
+    - extra-google-m2repository
+
+# Android caching
+before_cache:
+  - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
+  - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
+
+cache:
+  directories:
+    - $HOME/.gradle/caches/
+    - $HOME/.gradle/wrapper/
+    - $HOME/.android/build-cache
+
+script: ./gradlew build
