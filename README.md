@@ -1,5 +1,31 @@
 # usb-serial-for-android
 
+**AndProx modified version.**
+
+* **Upstream repository**: https://github.com/mik3y/usb-serial-for-android
+* **This repository**: https://github.com/AndProx/usb-serial-for-android
+
+This branch of the library is used by [AndProx][0], an Android port of the [Proxmark 3 RFID
+client](https://github.com/proxmark/Proxmark3). It contains some modifications compared to upstream:
+
+* Ported to Java 8.
+* Builds on Android SDK 27.
+* Deleted all serial drivers except for CDC-ACM.
+* Deleted unused code.
+* Adds USB device information for Proxmark 3 hardware.
+* Deletes USB device information for non-Proxmark 3 hardware.
+
+_No warranty is given to those who want to use this code outside of [AndProx][0]._ Pull requests are
+accepted, but only in the context of an [AndProx][0] issue.
+
+You are welcome to adapt changes in your own branch of `usb-serial-for-android`.
+
+The only code that gets built or touched is the `usbSerialForAndroid` directory.
+
+[0]: https://github.com/AndProx/AndProx
+
+**Original README follows:**
+
 This is a driver library for communication with Arduinos and other USB serial hardware on
 Android, using the
 [Android USB Host API](http://developer.android.com/guide/topics/connectivity/usb/host.html)
