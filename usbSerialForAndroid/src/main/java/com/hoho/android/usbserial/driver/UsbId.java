@@ -31,6 +31,7 @@ package com.hoho.android.usbserial.driver;
  */
 public final class UsbId {
 
+    /*
     public static final int VENDOR_FTDI = 0x0403;
     public static final int FTDI_FT232R = 0x6001;
     public static final int FTDI_FT231X = 0x6015;
@@ -56,13 +57,6 @@ public final class UsbId {
     public static final int VENDOR_LEAFLABS = 0x1eaf;
     public static final int LEAFLABS_MAPLE = 0x0004;
 
-    // Older firmware uses unregistered IDs
-    public static final int VENDOR_PROXMARK3_OLD = 0x2d2d;
-    public static final int PROXMARK3_OLD = 0x504d;
-
-    public static final int VENDOR_PROXMARK3 = 0x9ac4;
-    public static final int PROXMARK3 = 0x4b8f;
-
     public static final int VENDOR_SILABS = 0x10c4;
     public static final int SILABS_CP2102 = 0xea60;
     public static final int SILABS_CP2105 = 0xea70;
@@ -74,9 +68,17 @@ public final class UsbId {
 
     public static final int VENDOR_QINHENG = 0x1a86;
     public static final int QINHENG_HL340 = 0x7523;
+    */
+
+    // Older firmware uses unregistered IDs
+    public static final int VENDOR_PROXMARK3_OLD = 0x2d2d;
+    public static final int PROXMARK3_OLD = 0x504d;
+
+    public static final int VENDOR_PROXMARK3 = 0x9ac4;
+    public static final int PROXMARK3 = 0x4b8f;
 
     private UsbId() {
-        throw new IllegalAccessError("Non-instantiable class.");
+        // throw new IllegalAccessError("Non-instantiable class.");
     }
 
 }
