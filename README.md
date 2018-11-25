@@ -11,7 +11,7 @@ This branch of the library is used by [AndProx][0], an Android port of the [Prox
 client](https://github.com/proxmark/Proxmark3). It contains some modifications compared to upstream:
 
 * Ported to Java 8.
-* Builds on Android SDK 27.
+* Builds on Android SDK 28.
 * Deleted all serial drivers except for CDC-ACM.
 * Deleted unused code.
 * Adds USB device information for Proxmark 3 hardware.
