@@ -24,6 +24,7 @@ package com.hoho.android.usbserial.driver;
 import android.hardware.usb.UsbDeviceConnection;
 import android.hardware.usb.UsbManager;
 
+import java.io.Closeable;
 import java.io.IOException;
 
 /**
@@ -31,7 +32,7 @@ import java.io.IOException;
  *
  * @author mike wakerly (opensource@hoho.com)
  */
-public interface UsbSerialPort {
+public interface UsbSerialPort extends Closeable {
 
     /** 5 data bits. */
     int DATABITS_5 = 5;
@@ -105,13 +106,6 @@ public interface UsbSerialPort {
      * @throws IOException on error opening or initializing the port.
      */
     void open(UsbDeviceConnection connection) throws IOException;
-
-    /**
-     * Closes the port.
-     *
-     * @throws IOException on error closing the port.
-     */
-    void close() throws IOException;
 
     /**
      * Reads as many bytes as possible into the destination buffer.
@@ -224,5 +218,4 @@ public interface UsbSerialPort {
      * @throws IOException if an error occurred during flush
      */
     boolean purgeHwBuffers(boolean flushRX, boolean flushTX) throws IOException;
-
 }
